@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Favorite" representedClassName=".Favorite" syncable="YES" codeGenerationType="category">
+        <attribute name="breed" optional="YES" attributeType="String"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <attribute name="subBreed" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Favorite" positionX="140.9453125" positionY="10.64453125" width="128" height="88"/>
+    </elements>
+</model>

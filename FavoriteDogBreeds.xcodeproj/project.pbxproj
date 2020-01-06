@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		884318E023C25C0400059CD2 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884318DF23C25C0400059CD2 /* Dog.swift */; };
+		884318E223C25CF100059CD2 /* String+Capitalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884318E123C25CF100059CD2 /* String+Capitalization.swift */; };
+		8850166C23C2BA920082D3DE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850166B23C2BA920082D3DE /* Favorite.swift */; };
+		885C305023C263CF00CDFC7D /* DogBreedTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C304F23C263CF00CDFC7D /* DogBreedTableCell.swift */; };
+		885C305223C26ACB00CDFC7D /* BreedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C305123C26ACB00CDFC7D /* BreedDetailVC.swift */; };
 		886797D1239B10DA00ECBB8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797D0239B10DA00ECBB8A /* AppDelegate.swift */; };
 		886797D3239B10DA00ECBB8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797D2239B10DA00ECBB8A /* SceneDelegate.swift */; };
-		886797D5239B10DA00ECBB8A /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797D4239B10DA00ECBB8A /* FirstViewController.swift */; };
-		886797D7239B10DA00ECBB8A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797D6239B10DA00ECBB8A /* SecondViewController.swift */; };
+		886797D5239B10DA00ECBB8A /* BreedsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797D4239B10DA00ECBB8A /* BreedsVC.swift */; };
+		886797D7239B10DA00ECBB8A /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797D6239B10DA00ECBB8A /* FavoritesVC.swift */; };
 		886797DA239B10DA00ECBB8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886797D8239B10DA00ECBB8A /* Main.storyboard */; };
 		886797DD239B10DA00ECBB8A /* FavoriteDogBreeds.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 886797DB239B10DA00ECBB8A /* FavoriteDogBreeds.xcdatamodeld */; };
 		886797DF239B10E100ECBB8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886797DE239B10E100ECBB8A /* Assets.xcassets */; };
 		886797E2239B10E100ECBB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886797E0239B10E100ECBB8A /* LaunchScreen.storyboard */; };
 		886797ED239B10E200ECBB8A /* FavoriteDogBreedsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797EC239B10E200ECBB8A /* FavoriteDogBreedsTests.swift */; };
 		886797F8239B10E200ECBB8A /* FavoriteDogBreedsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797F7239B10E200ECBB8A /* FavoriteDogBreedsUITests.swift */; };
+		88F79B55239B259C0095DBDC /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F79B54239B259C0095DBDC /* APIResponses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +43,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		884318DF23C25C0400059CD2 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		884318E123C25CF100059CD2 /* String+Capitalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Capitalization.swift"; sourceTree = "<group>"; };
+		8850166B23C2BA920082D3DE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		885C304F23C263CF00CDFC7D /* DogBreedTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedTableCell.swift; sourceTree = "<group>"; };
+		885C305123C26ACB00CDFC7D /* BreedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailVC.swift; sourceTree = "<group>"; };
 		886797CD239B10DA00ECBB8A /* FavoriteDogBreeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteDogBreeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886797D0239B10DA00ECBB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		886797D2239B10DA00ECBB8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		886797D4239B10DA00ECBB8A /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		886797D6239B10DA00ECBB8A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		886797D4239B10DA00ECBB8A /* BreedsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsVC.swift; sourceTree = "<group>"; };
+		886797D6239B10DA00ECBB8A /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		886797D9239B10DA00ECBB8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		886797DC239B10DA00ECBB8A /* FavoriteDogBreeds.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDogBreeds.xcdatamodel; sourceTree = "<group>"; };
 		886797DE239B10E100ECBB8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +64,7 @@
 		886797F3239B10E200ECBB8A /* FavoriteDogBreedsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoriteDogBreedsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		886797F7239B10E200ECBB8A /* FavoriteDogBreedsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDogBreedsUITests.swift; sourceTree = "<group>"; };
 		886797F9239B10E200ECBB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88F79B54239B259C0095DBDC /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		884318E323C25D8200059CD2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				884318E123C25CF100059CD2 /* String+Capitalization.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		886797C4239B10DA00ECBB8A = {
 			isa = PBXGroup;
 			children = (
@@ -103,15 +123,16 @@
 		886797CF239B10DA00ECBB8A /* FavoriteDogBreeds */ = {
 			isa = PBXGroup;
 			children = (
+				88D1C1A223C2EABA00C1AF44 /* TableCells */,
+				88D1C1A123C2EA9A00C1AF44 /* ViewControllers */,
+				884318E323C25D8200059CD2 /* Extensions */,
+				88C46B63239B50D300F446B1 /* Models */,
 				886797D0239B10DA00ECBB8A /* AppDelegate.swift */,
 				886797D2239B10DA00ECBB8A /* SceneDelegate.swift */,
-				886797D4239B10DA00ECBB8A /* FirstViewController.swift */,
-				886797D6239B10DA00ECBB8A /* SecondViewController.swift */,
 				886797D8239B10DA00ECBB8A /* Main.storyboard */,
 				886797DE239B10E100ECBB8A /* Assets.xcassets */,
 				886797E0239B10E100ECBB8A /* LaunchScreen.storyboard */,
 				886797E3239B10E100ECBB8A /* Info.plist */,
-				886797DB239B10DA00ECBB8A /* FavoriteDogBreeds.xcdatamodeld */,
 			);
 			path = FavoriteDogBreeds;
 			sourceTree = "<group>";
@@ -132,6 +153,35 @@
 				886797F9239B10E200ECBB8A /* Info.plist */,
 			);
 			path = FavoriteDogBreedsUITests;
+			sourceTree = "<group>";
+		};
+		88C46B63239B50D300F446B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				88F79B54239B259C0095DBDC /* APIResponses.swift */,
+				884318DF23C25C0400059CD2 /* Dog.swift */,
+				8850166B23C2BA920082D3DE /* Favorite.swift */,
+				886797DB239B10DA00ECBB8A /* FavoriteDogBreeds.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		88D1C1A123C2EA9A00C1AF44 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				886797D4239B10DA00ECBB8A /* BreedsVC.swift */,
+				885C305123C26ACB00CDFC7D /* BreedDetailVC.swift */,
+				886797D6239B10DA00ECBB8A /* FavoritesVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		88D1C1A223C2EABA00C1AF44 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				885C304F23C263CF00CDFC7D /* DogBreedTableCell.swift */,
+			);
+			path = TableCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,11 +315,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				886797D7239B10DA00ECBB8A /* SecondViewController.swift in Sources */,
-				886797D5239B10DA00ECBB8A /* FirstViewController.swift in Sources */,
+				885C305223C26ACB00CDFC7D /* BreedDetailVC.swift in Sources */,
+				886797D7239B10DA00ECBB8A /* FavoritesVC.swift in Sources */,
+				884318E023C25C0400059CD2 /* Dog.swift in Sources */,
+				884318E223C25CF100059CD2 /* String+Capitalization.swift in Sources */,
+				886797D5239B10DA00ECBB8A /* BreedsVC.swift in Sources */,
 				886797D1239B10DA00ECBB8A /* AppDelegate.swift in Sources */,
+				8850166C23C2BA920082D3DE /* Favorite.swift in Sources */,
 				886797DD239B10DA00ECBB8A /* FavoriteDogBreeds.xcdatamodeld in Sources */,
 				886797D3239B10DA00ECBB8A /* SceneDelegate.swift in Sources */,
+				885C305023C263CF00CDFC7D /* DogBreedTableCell.swift in Sources */,
+				88F79B55239B259C0095DBDC /* APIResponses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +437,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -434,6 +491,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
