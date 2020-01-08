@@ -50,6 +50,30 @@ class BreedDetailVC: UIViewController {
         getDogBreedImage()
     }
     
+    @IBAction func downloadPhoto(_ sender: UIButton) {
+        guard let img = self.breedImage?.image else {
+            return
+        }
+        
+        self.spinner.startAnimating()
+        
+        UIImageWriteToSavedPhotosAlbum(img, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            let ac = UIAlertController(title: "Saved!", message: "The \(self.selectedDogBreed?.label ?? "dog") photo has been saved", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        }
+        self.spinner.stopAnimating()
+    }
+    
     // MARK: favoriteTapped
     @IBAction func favoriteTapped(_ sender: UIBarButtonItem) {
         guard let selectedDog = self.selectedDogBreed else { return }

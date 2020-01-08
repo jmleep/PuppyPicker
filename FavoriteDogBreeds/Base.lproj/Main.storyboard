@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--BreedsVC-->
+        <!--Dog Breeds-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="BreedsVC" customModule="FavoriteDogBreeds" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,14 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dog Breeds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyH-zg-eIm">
-                                <rect key="frame" x="15" y="103" width="399" height="42"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pXk-py-rCD">
-                                <rect key="frame" x="0.0" y="153" width="414" height="660"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DogBreedTableViewCell" id="08V-qX-pGw" customClass="DogBreedTableCell" customModule="FavoriteDogBreeds" customModuleProvider="target">
@@ -60,16 +54,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="pXk-py-rCD" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="1at-hM-AY2"/>
+                            <constraint firstItem="pXk-py-rCD" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="253-Dl-QpK"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="pXk-py-rCD" secondAttribute="bottom" id="QTE-aV-4rz"/>
-                            <constraint firstItem="kyH-zg-eIm" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="15" id="bai-Bj-V04"/>
-                            <constraint firstItem="kyH-zg-eIm" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="lvx-lk-xG0"/>
-                            <constraint firstItem="pXk-py-rCD" firstAttribute="top" secondItem="kyH-zg-eIm" secondAttribute="bottom" constant="8" symbolic="YES" id="tlE-OF-8Fc"/>
-                            <constraint firstItem="kyH-zg-eIm" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="15" id="ydn-Ra-yvk"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="pXk-py-rCD" secondAttribute="trailing" id="zwd-Sb-oag"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Jg9-E5-Fyp"/>
+                    <navigationItem key="navigationItem" title="Dog Breeds" id="Jg9-E5-Fyp"/>
                     <connections>
                         <outlet property="tableView" destination="pXk-py-rCD" id="KdY-wD-18H"/>
                         <segue destination="5k6-uh-MiS" kind="show" identifier="BreedDetailSegue" id="qi8-Wb-PRH"/>
@@ -79,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="2150.7246376811595" y="0.0"/>
         </scene>
-        <!--FavoritesVC-->
+        <!--Favorites-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="FavoritesVC" customModule="FavoriteDogBreeds" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,14 +78,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5b5-WG-dRP">
-                                <rect key="frame" x="15" y="103" width="379" height="42"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vMT-vg-BkB">
-                                <rect key="frame" x="0.0" y="145" width="414" height="668"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DogBreedTableViewCell" id="isW-P8-rcW" customClass="DogBreedTableCell" customModule="FavoriteDogBreeds" customModuleProvider="target">
@@ -133,15 +118,12 @@
                         <constraints>
                             <constraint firstItem="vMT-vg-BkB" firstAttribute="trailing" secondItem="O1u-W8-tvY" secondAttribute="trailing" id="64z-vl-WUD"/>
                             <constraint firstItem="vMT-vg-BkB" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" id="J8G-6y-cCj"/>
-                            <constraint firstItem="vMT-vg-BkB" firstAttribute="top" secondItem="5b5-WG-dRP" secondAttribute="bottom" id="Lah-DU-cbI"/>
-                            <constraint firstItem="5b5-WG-dRP" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="15" id="hTZ-Dg-2CH"/>
-                            <constraint firstItem="5b5-WG-dRP" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="15" id="nbM-V4-cpl"/>
-                            <constraint firstAttribute="trailing" secondItem="5b5-WG-dRP" secondAttribute="trailing" constant="20" symbolic="YES" id="r6c-4h-zqG"/>
+                            <constraint firstItem="vMT-vg-BkB" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" id="cJT-Xp-Zac"/>
                             <constraint firstItem="vMT-vg-BkB" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="tGB-9d-v6q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="0rI-83-rHQ"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="0rI-83-rHQ"/>
                     <connections>
                         <outlet property="tableView" destination="vMT-vg-BkB" id="k2v-Rv-WXp"/>
                     </connections>
@@ -174,11 +156,14 @@
                 <navigationController title="Dog Breeds" automaticallyAdjustsScrollViewInsets="NO" id="7Ll-Sx-3nu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Breeds" image="list.bullet" catalog="system" id="acW-dT-cKf"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aLg-Xu-VNu">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="aLg-Xu-VNu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -202,7 +187,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xgf-it-7oX">
-                                <rect key="frame" x="1" y="93" width="412" height="709"/>
+                                <rect key="frame" x="1" y="145" width="412" height="657"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPb-E5-XaS">
                                 <rect key="frame" x="20" y="812" width="103" height="40"/>
@@ -217,6 +202,9 @@
                                     <constraint firstAttribute="height" constant="40" id="p2C-Mb-ndH"/>
                                 </constraints>
                                 <state key="normal" title="Download"/>
+                                <connections>
+                                    <action selector="downloadPhoto:" destination="5k6-uh-MiS" eventType="touchUpInside" id="cj5-BR-Kuw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -257,8 +245,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VrV-Sg-aOd" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="cPa-gy-q4n"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ytl-Ul-cjn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ytl-Ul-cjn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

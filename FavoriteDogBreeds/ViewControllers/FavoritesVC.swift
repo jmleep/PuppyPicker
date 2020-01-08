@@ -18,16 +18,9 @@ class FavoritesVC: UIViewController {
     // MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
         getFavorites()
     }
-    
-    // MARK: viewWillDisappear
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
+
     func getFavorites() {
         let favoritesRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
         favoritesRequest.sortDescriptors = [NSSortDescriptor(key: "label", ascending: true)]
@@ -52,7 +45,7 @@ extension FavoritesVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let dog = self.favorites[indexPath.row]
-        
+        print(dog.label!)
         let cell = tableView.dequeueReusableCell(withIdentifier: "DogBreedTableViewCell") as! DogBreedTableCell
         
         cell.setData(label: dog.label!)

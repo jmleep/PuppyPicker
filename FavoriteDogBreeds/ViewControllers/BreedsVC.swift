@@ -57,14 +57,6 @@ class BreedsVC: UIViewController {
         if favorites != nil && favorites!.count > 0 {            
             self.favorites = favorites!
         }
-
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-
-    // MARK: viewWillDisappear
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     // MARK: fetchDogBreeds
