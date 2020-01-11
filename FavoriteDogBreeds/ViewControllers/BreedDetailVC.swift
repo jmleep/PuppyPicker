@@ -41,15 +41,24 @@ class BreedDetailVC: UIViewController {
         
         getDogBreedImage()
     }
-    
-    // MARK: actions
-    
+
     @IBAction func randomImageTapped(_ sender: UIButton) {
         breedImage?.image = nil
         spinner.startAnimating()
         getDogBreedImage()
     }
     
+    @IBAction func sharePhoto(_ sender: UIButton) {
+        let items = [breedImage?.image]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        ac.popoverPresentationController?.sourceView = self.view
+        ac.popoverPresentationController?.sourceRect = sender.frame
+        
+        present(ac, animated: true)
+    }
+    
+    // MARK: save photo
     @IBAction func downloadPhoto(_ sender: UIButton) {
         guard let img = self.breedImage?.image else {
             return
@@ -61,17 +70,20 @@ class BreedDetailVC: UIViewController {
     }
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
-        if let error = error {
-            // we got back an error!
-            let ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
+        if error != nil {
+            let displayName = Bundle.main.displayName ?? "the app"
+            
+            presentAlertController(title: "Error saving", message: "Make sure you have enabled photo access for \(displayName) under Settings")
         } else {
-            let ac = UIAlertController(title: "Saved!", message: "The \(self.selectedDogBreed?.label ?? "dog") photo has been saved", preferredStyle: .alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .default))
-            present(ac, animated: true)
+            presentAlertController(title: "Saved!", message: "The \(self.selectedDogBreed?.label ?? "dog") photo has been saved")
         }
         self.spinner.stopAnimating()
+    }
+    
+    func presentAlertController(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
     // MARK: favoriteTapped

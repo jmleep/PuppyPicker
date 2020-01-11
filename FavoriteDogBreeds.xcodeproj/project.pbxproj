@@ -22,6 +22,7 @@
 		886797E2239B10E100ECBB8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886797E0239B10E100ECBB8A /* LaunchScreen.storyboard */; };
 		886797ED239B10E200ECBB8A /* FavoriteDogBreedsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797EC239B10E200ECBB8A /* FavoriteDogBreedsTests.swift */; };
 		886797F8239B10E200ECBB8A /* FavoriteDogBreedsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886797F7239B10E200ECBB8A /* FavoriteDogBreedsUITests.swift */; };
+		88BAB1B623C980FE0073A8E2 /* Bundle+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BAB1B523C980FE0073A8E2 /* Bundle+Name.swift */; };
 		88F79B55239B259C0095DBDC /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F79B54239B259C0095DBDC /* APIResponses.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +49,7 @@
 		8850166B23C2BA920082D3DE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		885C304F23C263CF00CDFC7D /* DogBreedTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedTableCell.swift; sourceTree = "<group>"; };
 		885C305123C26ACB00CDFC7D /* BreedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailVC.swift; sourceTree = "<group>"; };
-		886797CD239B10DA00ECBB8A /* FavoriteDogBreeds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavoriteDogBreeds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		886797CD239B10DA00ECBB8A /* PuppyPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuppyPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886797D0239B10DA00ECBB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		886797D2239B10DA00ECBB8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		886797D4239B10DA00ECBB8A /* BreedsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsVC.swift; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		886797F3239B10E200ECBB8A /* FavoriteDogBreedsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FavoriteDogBreedsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		886797F7239B10E200ECBB8A /* FavoriteDogBreedsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDogBreedsUITests.swift; sourceTree = "<group>"; };
 		886797F9239B10E200ECBB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88BAB1B523C980FE0073A8E2 /* Bundle+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Name.swift"; sourceTree = "<group>"; };
 		88F79B54239B259C0095DBDC /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				884318E123C25CF100059CD2 /* String+Capitalization.swift */,
+				88BAB1B523C980FE0073A8E2 /* Bundle+Name.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -113,7 +116,7 @@
 		886797CE239B10DA00ECBB8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				886797CD239B10DA00ECBB8A /* FavoriteDogBreeds.app */,
+				886797CD239B10DA00ECBB8A /* PuppyPicker.app */,
 				886797E8239B10E200ECBB8A /* FavoriteDogBreedsTests.xctest */,
 				886797F3239B10E200ECBB8A /* FavoriteDogBreedsUITests.xctest */,
 			);
@@ -201,7 +204,7 @@
 			);
 			name = FavoriteDogBreeds;
 			productName = FavoriteDogBreeds;
-			productReference = 886797CD239B10DA00ECBB8A /* FavoriteDogBreeds.app */;
+			productReference = 886797CD239B10DA00ECBB8A /* PuppyPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		886797E7239B10E200ECBB8A /* FavoriteDogBreedsTests */ = {
@@ -321,6 +324,7 @@
 				884318E223C25CF100059CD2 /* String+Capitalization.swift in Sources */,
 				886797D5239B10DA00ECBB8A /* BreedsVC.swift in Sources */,
 				886797D1239B10DA00ECBB8A /* AppDelegate.swift in Sources */,
+				88BAB1B623C980FE0073A8E2 /* Bundle+Name.swift in Sources */,
 				8850166C23C2BA920082D3DE /* Favorite.swift in Sources */,
 				886797DD239B10DA00ECBB8A /* FavoriteDogBreeds.xcdatamodeld in Sources */,
 				886797D3239B10DA00ECBB8A /* SceneDelegate.swift in Sources */,
@@ -438,6 +442,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -492,6 +497,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -501,13 +507,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZJ75TYDU9D;
 				INFOPLIST_FILE = FavoriteDogBreeds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.FavoriteDogBreeds;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.PuppyPicker;
+				PRODUCT_NAME = PuppyPicker;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -518,13 +525,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZJ75TYDU9D;
 				INFOPLIST_FILE = FavoriteDogBreeds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.FavoriteDogBreeds;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.PuppyPicker;
+				PRODUCT_NAME = PuppyPicker;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
