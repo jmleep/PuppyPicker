@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,22 +12,22 @@
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="BreedsVC" customModule="FavoriteDogBreeds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pXk-py-rCD">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DogBreedTableViewCell" id="08V-qX-pGw" customClass="DogBreedTableCell" customModule="FavoriteDogBreeds" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="61.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="61.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="08V-qX-pGw" id="Gxg-Tp-n8S">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPr-2Y-OqN">
-                                                    <rect key="frame" x="10" y="20" width="394" height="21.333333333333329"/>
+                                                    <rect key="frame" x="10" y="20" width="355" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -75,22 +75,22 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="FavoritesVC" customModule="FavoriteDogBreeds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vMT-vg-BkB">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DogBreedTableViewCell" id="isW-P8-rcW" customClass="DogBreedTableCell" customModule="FavoriteDogBreeds" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="61.333332061767578"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="61.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="isW-P8-rcW" id="XDv-Rl-1gj">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="61.333332061767578"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="61.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Soj-oG-3Hh">
-                                                    <rect key="frame" x="10" y="20" width="394" height="21.333333333333329"/>
+                                                    <rect key="frame" x="10" y="20" width="355" height="21.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
                     <tabBarItem key="tabBarItem" title="Breeds" image="list.bullet" catalog="system" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="aLg-Xu-VNu">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
@@ -183,14 +183,14 @@
             <objects>
                 <viewController storyboardIdentifier="BreedDetailVC" hidesBottomBarWhenPushed="YES" id="5k6-uh-MiS" customClass="BreedDetailVC" customModule="FavoriteDogBreeds" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZqT-aH-FPO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xgf-it-7oX">
-                                <rect key="frame" x="1" y="145" width="412" height="657"/>
+                                <rect key="frame" x="1" y="145" width="373" height="573"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vlT-Kt-P4S">
-                                <rect key="frame" x="325" y="812" width="69" height="40"/>
+                                <rect key="frame" x="286" y="728" width="69" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="p2C-Mb-ndH"/>
                                 </constraints>
@@ -200,7 +200,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTC-yh-XvV">
-                                <rect key="frame" x="20" y="812" width="40" height="40"/>
+                                <rect key="frame" x="20" y="728" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="p1X-rw-Hpn"/>
                                 </constraints>
@@ -210,7 +210,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oPb-E5-XaS">
-                                <rect key="frame" x="156" y="812" width="103" height="40"/>
+                                <rect key="frame" x="136" y="728" width="103" height="40"/>
                                 <state key="normal" title="Random Image"/>
                                 <connections>
                                     <action selector="randomImageTapped:" destination="5k6-uh-MiS" eventType="touchUpInside" id="nKU-4x-GSN"/>
@@ -220,12 +220,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Xgf-it-7oX" secondAttribute="trailing" constant="1" id="6yh-bW-OCm"/>
-                            <constraint firstItem="oPb-E5-XaS" firstAttribute="leading" secondItem="3nA-r6-VXC" secondAttribute="leading" constant="156" id="CPq-jx-kZ8"/>
-                            <constraint firstItem="3nA-r6-VXC" firstAttribute="trailing" secondItem="oPb-E5-XaS" secondAttribute="trailing" constant="155" id="Grb-yF-vwC"/>
                             <constraint firstItem="3nA-r6-VXC" firstAttribute="bottom" secondItem="vlT-Kt-P4S" secondAttribute="bottom" constant="10" id="Guy-b5-GSb"/>
                             <constraint firstItem="oPb-E5-XaS" firstAttribute="top" secondItem="Xgf-it-7oX" secondAttribute="bottom" constant="10" id="NSf-zz-zit"/>
                             <constraint firstItem="vlT-Kt-P4S" firstAttribute="top" secondItem="Xgf-it-7oX" secondAttribute="bottom" constant="10" id="TCJ-CU-UKQ"/>
                             <constraint firstItem="3nA-r6-VXC" firstAttribute="trailing" secondItem="vlT-Kt-P4S" secondAttribute="trailing" constant="20" id="Ts8-Ld-OU1"/>
+                            <constraint firstItem="oPb-E5-XaS" firstAttribute="centerX" secondItem="3nA-r6-VXC" secondAttribute="centerX" id="XY1-hx-17I"/>
                             <constraint firstItem="Xgf-it-7oX" firstAttribute="top" secondItem="3nA-r6-VXC" secondAttribute="top" constant="5" id="aE6-cm-z9j"/>
                             <constraint firstItem="BTC-yh-XvV" firstAttribute="top" secondItem="Xgf-it-7oX" secondAttribute="bottom" constant="10" id="m2z-fj-jYJ"/>
                             <constraint firstItem="Xgf-it-7oX" firstAttribute="leading" secondItem="ZqT-aH-FPO" secondAttribute="leading" constant="1" id="uaF-pc-msu"/>
@@ -257,7 +256,7 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="ytl-Ul-cjn">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
