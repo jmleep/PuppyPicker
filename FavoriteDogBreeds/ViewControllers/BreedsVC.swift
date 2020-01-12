@@ -13,9 +13,12 @@ class BreedsVC: UIViewController {
     
     // MARK: outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // MARK: vars
     var dogBreeds: [Dog] = [Dog]()
+    var filteredBreeds: [Dog] = [Dog]()
+    var isSearching = false
     var spinner = UIActivityIndicatorView(style: .large)
     var favorites: [Favorite] = []
     
@@ -23,25 +26,11 @@ class BreedsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        spinner.translatesAutoresizingMaskIntoConstraints = false
-        spinner.startAnimating()
-        view.addSubview(spinner)
-
-        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        self.tableView.tableHeaderView = self.searchBar
         
-        // Load dog breeds
+        setupSpinner()
+        setupSearchBar()
         fetchDogBreeds()
-        
-//        let fetch: NSFetchRequest<NSFetchRequestResult> = Favorite.fetchRequest()
-//        let del = NSBatchDeleteRequest(fetchRequest: fetch)
-//
-//        let context = AppDelegate.viewContext
-//        do {
-//            try context.execute(del)
-//        } catch let error as NSError {
-//            print(error)
-//        }
     }
     
     // MARK: viewWillAppear
@@ -57,6 +46,19 @@ class BreedsVC: UIViewController {
         if favorites != nil && favorites!.count > 0 {            
             self.favorites = favorites!
         }
+    }
+    
+    func setupSearchBar() {
+        self.searchBar.delegate = self
+    }
+    
+    func setupSpinner() {
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.startAnimating()
+        view.addSubview(spinner)
+
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     // MARK: fetchDogBreeds
@@ -102,16 +104,26 @@ class BreedsVC: UIViewController {
         }
         task.resume()
     }
-
 }
+
 // MARK: TableView Extension
 extension BreedsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.isSearching {
+            return self.filteredBreeds.count
+        }
+        
         return self.dogBreeds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let dog = self.dogBreeds[indexPath.row]
+        var dog: Dog
+        
+        if isSearching {
+            dog = self.filteredBreeds[indexPath.row]
+        } else {
+            dog = self.dogBreeds[indexPath.row]
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DogBreedTableViewCell") as! DogBreedTableCell
         
@@ -121,7 +133,15 @@ extension BreedsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dog = self.dogBreeds[indexPath.row]
+        var dog: Dog
+        
+        if isSearching {
+            dog = self.filteredBreeds[indexPath.row]
+            self.searchBar.endEditing(true)
+        } else {
+            dog = self.dogBreeds[indexPath.row]
+        }
+        
         let favorite = determineIsFavorite(dog: dog)
         
         let detailVC = storyboard?.instantiateViewController(identifier: "BreedDetailVC") as! BreedDetailVC
@@ -146,5 +166,29 @@ extension BreedsVC: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-
-
+extension BreedsVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            self.isSearching = false
+            
+            searchBar.endEditing(true)
+        } else {
+            self.isSearching = true
+            
+            self.filteredBreeds = dogBreeds.filter({ (dog) -> Bool in
+                if dog.label.contains(searchText) {
+                    return true
+                }
+                return false
+            })
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.resignFirstResponder()
+    }
+}
