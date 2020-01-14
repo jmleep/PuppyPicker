@@ -1,0 +1,4 @@
+**/Development.xcconfig
+**/Staging.xcconfig
+**/Production.xcconfig
+Pods/*

@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  FavoriteDogBreeds
+//
+//  Created by Jordan Leeper on 1/13/20.
+//  Copyright © 2020 Jordan Leeper. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include "Pods/Target Support Files/Pods-FavoriteDogBreeds/Pods-FavoriteDogBreeds.development.xcconfig"
+BREED_VC_BANNER_AD_ID = ca-app-pub-3940256099942544/2934735716

@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import GoogleMobileAds
 
 class BreedsVC: UIViewController {
     
     // MARK: outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var adBanner: GADBannerView!
     
     // MARK: vars
     var dogBreeds: [Dog] = [Dog]()
@@ -27,7 +29,8 @@ class BreedsVC: UIViewController {
         super.viewDidLoad()
         
         self.tableView.tableHeaderView = self.searchBar
-        
+          
+        setupAdBanner()
         setupSpinner()
         setupSearchBar()
         fetchDogBreeds()
@@ -46,6 +49,12 @@ class BreedsVC: UIViewController {
         if favorites != nil && favorites!.count > 0 {            
             self.favorites = favorites!
         }
+    }
+    
+    func setupAdBanner() {
+        adBanner.rootViewController = self
+        adBanner.adUnitID = Environment.BREED_VC_BANNER_AD_ID
+        adBanner.load(GADRequest())
     }
     
     func setupSearchBar() {
