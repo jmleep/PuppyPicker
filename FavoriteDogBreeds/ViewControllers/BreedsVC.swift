@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import GoogleMobileAds
 
 class BreedsVC: UIViewController {
@@ -18,11 +17,11 @@ class BreedsVC: UIViewController {
     @IBOutlet weak var adBanner: GADBannerView!
     
     // MARK: vars
-    var dogBreeds: [Dog] = [Dog]()
-    var filteredBreeds: [Dog] = [Dog]()
-    var isSearching = false
-    var spinner = UIActivityIndicatorView(style: .large)
-    var favorites: [Favorite] = []
+    fileprivate var dogBreeds: [Dog] = [Dog]()
+    fileprivate var filteredBreeds: [Dog] = [Dog]()
+    fileprivate var isSearching = false
+    private var spinner = UIActivityIndicatorView(style: .large)
+    fileprivate var activeRow = 0
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -34,21 +33,6 @@ class BreedsVC: UIViewController {
         setupSpinner()
         setupSearchBar()
         fetchDogBreeds()
-    }
-    
-    // MARK: viewWillAppear
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let favoritesRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        favoritesRequest.sortDescriptors = [NSSortDescriptor(key: "label", ascending: true)]
-        
-        let context = AppDelegate.viewContext
-        let favorites = try? context.fetch(favoritesRequest)
-        
-        if favorites != nil && favorites!.count > 0 {            
-            self.favorites = favorites!
-        }
     }
     
     func setupAdBanner() {
@@ -72,46 +56,84 @@ class BreedsVC: UIViewController {
     
     // MARK: fetchDogBreeds
     func fetchDogBreeds() {
-        let dogBreedsURL = URL(string: "https://dog.ceo/api/breeds/list/all")!
-        
-        let task = URLSession.shared.dataTask(with: dogBreedsURL) { (data, response, error) in
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-            
-            do {
-                let breeds = try decoder.decode(DogBreedsResponse.self, from: data)
-                
-                /*
-                 Example response from API (usually much longer list):
-                 ["beagle": [], "ridgeback": ["rhodesian"], "terrier": ["american", "australian", "bedlington", "border", "dandie", "fox", "irish", "kerryblue", "lakeland", "norfolk", "norwich", "patterdale", "russell", "scottish", "sealyham", "silky", "tibetan", "toy", "westhighland", "wheaten", "yorkshire"]]
-                 */
-                
-                var tempDogArray = [Dog]()
-                
-                for breed in breeds.message {
-                    if (breed.value.isEmpty) {
-                        tempDogArray.append(Dog(label: breed.key.firstUppercased, breed: breed.key))
-                    } else {
-                        for subBreed in breed.value {
-                            tempDogArray.append(Dog(label: "\(subBreed.firstUppercased) \(breed.key.firstUppercased)", breed: breed.key, subBreed: subBreed))
-                        }
-                    }
-                }
-                
-                self.dogBreeds = tempDogArray.sorted { (dog1, dog2) -> Bool in
-                    dog1.label < dog2.label
-                }
-                
+        DogAPIService.instance.fetchDogBreeds { (breeds, error) in
+            if let dogs = breeds {
                 DispatchQueue.main.async {
+                    self.dogBreeds = dogs
                     self.spinner.stopAnimating()
                     self.tableView.reloadData()
                 }
-                
-            } catch {
-                print(error)
+            } else {
+                print(error!)
             }
         }
-        task.resume()
+    }
+    
+    @objc func handleGesture(_ sender: UISwipeGestureRecognizer) {
+        
+        if sender.direction == UISwipeGestureRecognizer.Direction.right {
+            if self.activeRow == 0 {
+                return
+            }
+            
+            self.activeRow -= 1
+            
+            let detailVC = configureDetailViewFor(row: self.activeRow)
+            let VCs = self.navigationController!.viewControllers
+            let editedVCs = [VCs[0], detailVC]
+
+            let transition: CATransition = CATransition()
+            transition.duration = 0.3
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromLeft
+            self.navigationController!.view.layer.add(transition, forKey: kCATransition)
+            self.navigationController!.setViewControllers(editedVCs, animated: true)
+            
+        } else if sender.direction == UISwipeGestureRecognizer.Direction.left {
+            var totalNumBreeds = dogBreeds.count - 1
+            
+            if isSearching && filteredBreeds.count <= 1 {
+                return
+            } else if isSearching && filteredBreeds.count > 1 {
+                totalNumBreeds = filteredBreeds.count - 1
+            }
+            
+            if (self.activeRow >= totalNumBreeds) {
+                return
+            } else {
+                self.activeRow += 1
+            }
+            
+            let detailVC = configureDetailViewFor(row: self.activeRow)
+            let VCs = self.navigationController!.viewControllers
+            let editedVCs = [VCs[0], detailVC]
+            self.navigationController!.setViewControllers(editedVCs, animated: true)
+        }
+    }
+    
+    func configureDetailViewFor(row: Int) -> BreedDetailVC {
+        var dog: Dog
+        
+        if isSearching {
+            dog = self.filteredBreeds[row]
+            self.searchBar.endEditing(true)
+        } else {
+            dog = self.dogBreeds[row]
+        }
+        
+        let detailVC = storyboard?.instantiateViewController(identifier: "BreedDetailVC") as! BreedDetailVC
+        detailVC.selectedDogBreed = dog
+        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action:  #selector(handleGesture(_:)))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        detailVC.swipeRight = swipeRight
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action:  #selector(handleGesture(_:)))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        detailVC.swipeLeft = swipeLeft
+        
+        return detailVC
     }
 }
 
@@ -142,36 +164,30 @@ extension BreedsVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var dog: Dog
+//        var dog: Dog
+//
+//        if isSearching {
+//            dog = self.filteredBreeds[indexPath.row]
+//            self.searchBar.endEditing(true)
+//        } else {
+//            dog = self.dogBreeds[indexPath.row]
+//        }
         
-        if isSearching {
-            dog = self.filteredBreeds[indexPath.row]
-            self.searchBar.endEditing(true)
-        } else {
-            dog = self.dogBreeds[indexPath.row]
-        }
+        self.activeRow = indexPath.row
         
-        let favorite = determineIsFavorite(dog: dog)
-        
-        let detailVC = storyboard?.instantiateViewController(identifier: "BreedDetailVC") as! BreedDetailVC
-        detailVC.selectedDogBreed = dog
-        detailVC.favorite = favorite
+//        let detailVC = storyboard?.instantiateViewController(identifier: "BreedDetailVC") as! BreedDetailVC
+//        detailVC.selectedDogBreed = dog
+//
+//        let swipeRight = UISwipeGestureRecognizer(target: self, action:  #selector(handleGesture(_:)))
+//        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+//        detailVC.swipeRight = swipeRight
+//
+//        let swipeLeft = UISwipeGestureRecognizer(target: self, action:  #selector(handleGesture(_:)))
+//        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+//        detailVC.swipeLeft = swipeLeft
+        let detailVC = configureDetailViewFor(row: indexPath.row)
         
         self.navigationController!.pushViewController(detailVC, animated: true)
-    }
-    
-    func determineIsFavorite(dog: Dog) -> Favorite? {
-        let favoritesRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        favoritesRequest.sortDescriptors = [NSSortDescriptor(key: "label", ascending: true)]
-        favoritesRequest.predicate = NSPredicate(format: "label == %@", dog.label)
-        
-        let context = AppDelegate.viewContext
-        let favorites = try? context.fetch(favoritesRequest)
-        
-        if favorites?.count ?? 0 > 0 {
-            return favorites![0]
-        }
-        return nil
     }
 }
 
@@ -201,3 +217,4 @@ extension BreedsVC: UISearchBarDelegate {
         self.searchBar.resignFirstResponder()
     }
 }
+

@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import CoreData
 
 class BreedDetailVC: UIViewController {
-
+    
     // MARK: outlets
     @IBOutlet weak var breedImage: UIImageView?
     @IBOutlet weak var favoriteBtn: UIBarButtonItem!
@@ -19,19 +18,34 @@ class BreedDetailVC: UIViewController {
     var selectedDogBreed: Dog?
     var favorite: Favorite?
     var spinner = UIActivityIndicatorView(style: .large)
+    var swipeRight: UIGestureRecognizer?
+    var swipeLeft: UIGestureRecognizer?
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.largeTitleDisplayMode = .never
+        
+        if let swipeRight = swipeRight {
+            self.view.addGestureRecognizer(swipeRight)
+        }
+        if let swipeLeft = swipeLeft {
+           self.view.addGestureRecognizer(swipeLeft)
+        }
+        
         if let dog = self.selectedDogBreed {
             self.title = dog.label
+            
+            if self.favorite == nil {
+                self.favorite = CoreDataFavoriteService.instance.fetchFavoriteBy(dog: dog)
+            }
         }
         
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
         view.addSubview(spinner)
-
+        
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
@@ -41,7 +55,7 @@ class BreedDetailVC: UIViewController {
         
         getDogBreedImage()
     }
-
+    
     @IBAction func randomImageTapped(_ sender: UIButton) {
         breedImage?.image = nil
         spinner.startAnimating()
@@ -50,7 +64,7 @@ class BreedDetailVC: UIViewController {
     
     @IBAction func sharePhoto(_ sender: UIButton) {
         let items = [breedImage?.image]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        let ac = UIActivityViewController(activityItems: items as [Any], applicationActivities: nil)
         
         ac.popoverPresentationController?.sourceView = self.view
         ac.popoverPresentationController?.sourceRect = sender.frame
@@ -72,7 +86,6 @@ class BreedDetailVC: UIViewController {
     @objc func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if error != nil {
             let displayName = Bundle.main.displayName ?? "the app"
-            
             presentAlertController(title: "Error saving", message: "Make sure you have enabled photo access for \(displayName) under Settings")
         } else {
             presentAlertController(title: "Saved!", message: "The \(self.selectedDogBreed?.label ?? "dog") photo has been saved")
@@ -89,25 +102,13 @@ class BreedDetailVC: UIViewController {
     // MARK: favoriteTapped
     @IBAction func favoriteTapped(_ sender: UIBarButtonItem) {
         guard let selectedDog = self.selectedDogBreed else { return }
-        let context = AppDelegate.viewContext
         
         if let fav = self.favorite {
-            context.delete(fav)
+            CoreDataFavoriteService.instance.deleteFavorite(favorite: fav)
             updateFavoriteButtonFill(filled: false)
         } else {
-            let favorite = Favorite(context: context)
-            favorite.label = selectedDog.label
-            favorite.breed = selectedDog.breed
-            favorite.subBreed = selectedDog.subBreed
-            
-            self.favorite = favorite
+            self.favorite = CoreDataFavoriteService.instance.addFavorite(dog: selectedDog)
             updateFavoriteButtonFill(filled: true)
-        }
-        
-        do {
-            try context.save()
-        } catch let error as NSError {
-            print(error)
         }
     }
     
@@ -126,42 +127,18 @@ class BreedDetailVC: UIViewController {
     
     // MARK: getDogBreedImage
     func getDogBreedImage() {
-        guard let selectedDog = self.selectedDogBreed else { return }
-        
-        var url = "https://dog.ceo/api/breed/\(selectedDog.breed)"
-        
-        if let subBreed = selectedDog.subBreed {
-            url += "/\(subBreed)"
-        }
-        
-        url += "/images/random"
-
-        let dogBreedRandomImgUrl = URL(string: url)!
-        let getImageUrltask = URLSession.shared.dataTask(with: dogBreedRandomImgUrl) { (data, response, error) in
-            guard let data = data else { return }
-            let decoder = JSONDecoder()
-            
-            do {
-                let imageResponse = try decoder.decode(DogBreedRandomImageResponse.self, from: data)
-        
-                let imageUrl = URL(string: imageResponse.message)!
-                
-                let downloadImageTask = URLSession.shared.dataTask(with: imageUrl) { (data, response, error) in
-                    guard let data = data else { return }
-                    
+        if let dogBreed = selectedDogBreed {
+            DogAPIService.instance.fetchImageBy(dog: dogBreed) { (image, error) in
+                if let dogImage = image {
                     DispatchQueue.main.async {
                         self.spinner.stopAnimating()
-                        self.breedImage?.image = UIImage(data: data)
+                        self.breedImage?.image = dogImage
                     }
+                } else {
+                    print(error!)
                 }
-                
-                downloadImageTask.resume()
-            } catch {
-                print(error)
             }
         }
-    
-        getImageUrltask.resume()
     }
 }
 

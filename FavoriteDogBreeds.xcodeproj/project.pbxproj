@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		71412559DF7FEEE3639BB18C /* Pods_FavoriteDogBreeds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A84670A04EF6EFB7F1C283 /* Pods_FavoriteDogBreeds.framework */; };
+		881F27BC23D4B820005F65E6 /* DogAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881F27BB23D4B81F005F65E6 /* DogAPIService.swift */; };
+		881F27BE23D53E61005F65E6 /* CoreDataFavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881F27BD23D53E60005F65E6 /* CoreDataFavoriteService.swift */; };
 		884318E023C25C0400059CD2 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884318DF23C25C0400059CD2 /* Dog.swift */; };
 		884318E223C25CF100059CD2 /* String+Capitalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884318E123C25CF100059CD2 /* String+Capitalization.swift */; };
 		8850166C23C2BA920082D3DE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8850166B23C2BA920082D3DE /* Favorite.swift */; };
@@ -29,12 +31,14 @@
 /* Begin PBXFileReference section */
 		50A84670A04EF6EFB7F1C283 /* Pods_FavoriteDogBreeds.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FavoriteDogBreeds.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		666653E58D76C865C462603F /* Pods-FavoriteDogBreeds.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FavoriteDogBreeds.production.xcconfig"; path = "Target Support Files/Pods-FavoriteDogBreeds/Pods-FavoriteDogBreeds.production.xcconfig"; sourceTree = "<group>"; };
+		881F27BB23D4B81F005F65E6 /* DogAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogAPIService.swift; sourceTree = "<group>"; };
+		881F27BD23D53E60005F65E6 /* CoreDataFavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFavoriteService.swift; sourceTree = "<group>"; };
 		884318DF23C25C0400059CD2 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		884318E123C25CF100059CD2 /* String+Capitalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Capitalization.swift"; sourceTree = "<group>"; };
 		8850166B23C2BA920082D3DE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		885C304F23C263CF00CDFC7D /* DogBreedTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedTableCell.swift; sourceTree = "<group>"; };
 		885C305123C26ACB00CDFC7D /* BreedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailVC.swift; sourceTree = "<group>"; };
-		886797CD239B10DA00ECBB8A /* PuppyPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuppyPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		886797CD239B10DA00ECBB8A /* PuppyPic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuppyPic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886797D0239B10DA00ECBB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		886797D2239B10DA00ECBB8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		886797D4239B10DA00ECBB8A /* BreedsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsVC.swift; sourceTree = "<group>"; };
@@ -77,6 +81,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		881F27BA23D4B7DA005F65E6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				881F27BB23D4B81F005F65E6 /* DogAPIService.swift */,
+				881F27BD23D53E60005F65E6 /* CoreDataFavoriteService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		884318E323C25D8200059CD2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +112,7 @@
 		886797CE239B10DA00ECBB8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				886797CD239B10DA00ECBB8A /* PuppyPicker.app */,
+				886797CD239B10DA00ECBB8A /* PuppyPic.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,6 +120,7 @@
 		886797CF239B10DA00ECBB8A /* FavoriteDogBreeds */ = {
 			isa = PBXGroup;
 			children = (
+				881F27BA23D4B7DA005F65E6 /* Services */,
 				886E4A0C23CD6EA30088A171 /* Config */,
 				88D1C1A223C2EABA00C1AF44 /* TableCells */,
 				88D1C1A123C2EA9A00C1AF44 /* ViewControllers */,
@@ -188,7 +202,7 @@
 			);
 			name = FavoriteDogBreeds;
 			productName = FavoriteDogBreeds;
-			productReference = 886797CD239B10DA00ECBB8A /* PuppyPicker.app */;
+			productReference = 886797CD239B10DA00ECBB8A /* PuppyPic.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -289,6 +303,8 @@
 				884318E023C25C0400059CD2 /* Dog.swift in Sources */,
 				884318E223C25CF100059CD2 /* String+Capitalization.swift in Sources */,
 				886797D5239B10DA00ECBB8A /* BreedsVC.swift in Sources */,
+				881F27BE23D53E61005F65E6 /* CoreDataFavoriteService.swift in Sources */,
+				881F27BC23D4B820005F65E6 /* DogAPIService.swift in Sources */,
 				886797D1239B10DA00ECBB8A /* AppDelegate.swift in Sources */,
 				88BAB1B623C980FE0073A8E2 /* Bundle+Name.swift in Sources */,
 				8850166C23C2BA920082D3DE /* Favorite.swift in Sources */,
@@ -391,15 +407,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZJ75TYDU9D;
 				INFOPLIST_FILE = FavoriteDogBreeds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.PuppyPicker;
-				PRODUCT_NAME = PuppyPicker;
+				PRODUCT_NAME = PuppyPic;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -469,15 +486,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZJ75TYDU9D;
 				INFOPLIST_FILE = FavoriteDogBreeds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.PuppyPicker;
-				PRODUCT_NAME = PuppyPicker;
+				PRODUCT_NAME = PuppyPic;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -608,15 +626,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZJ75TYDU9D;
 				INFOPLIST_FILE = FavoriteDogBreeds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.PuppyPicker;
-				PRODUCT_NAME = PuppyPicker;
+				PRODUCT_NAME = PuppyPic;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -628,15 +647,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = ZJ75TYDU9D;
 				INFOPLIST_FILE = FavoriteDogBreeds/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.leeper.jordan.PuppyPicker;
-				PRODUCT_NAME = PuppyPicker;
+				PRODUCT_NAME = PuppyPic;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

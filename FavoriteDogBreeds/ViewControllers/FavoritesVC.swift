@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class FavoritesVC: UIViewController {
 
@@ -22,16 +21,12 @@ class FavoritesVC: UIViewController {
     }
 
     func getFavorites() {
-        let favoritesRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        favoritesRequest.sortDescriptors = [NSSortDescriptor(key: "label", ascending: true)]
-        
-        let context = AppDelegate.viewContext
-        let favorites = try? context.fetch(favoritesRequest)
-        
-        if favorites?.count ?? 0 > 0 {
-            self.favorites = favorites!
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+        CoreDataFavoriteService.instance.fetchFavorites { (storedFavorites) in
+            if let favorites = storedFavorites {
+                self.favorites = favorites
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         }
     }
